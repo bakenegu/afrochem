@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import React from "react";
 
 type CardProps = {
@@ -57,7 +58,7 @@ export default function Home() {
                 size="lg"
                 className="px-6 bg-orange-600 text-white hover:bg-orange-700"
               >
-                <a href="/contact">Request a Quote</a>
+                <a href="mailto:afrochem2019@gmail.com">Request a Quote</a>
               </Button>
               <Button
                 asChild
@@ -74,6 +75,16 @@ export default function Home() {
           </div>
 
           <div className="relative flex-1">
+            <div className="mb-4 flex justify-center">
+              <Image
+                src="/afrologo.png"
+                alt="AFROCHEM logo"
+                width={260}
+                height={80}
+                priority
+                className="h-16 w-auto"
+              />
+            </div>
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-orange-50/60 to-orange-100/40 p-8 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
@@ -97,81 +108,160 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-16 lg:py-20">
-          <div className="space-y-3">
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-orange-600">
-              Industries Served
-            </p>
-            <div className="space-y-2">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+      <section className="relative bg-white scroll-mt-28">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20 min-h-[140vh]">
+          <div className="grid gap-10 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
+            <div className="space-y-3 lg:sticky lg:top-28 lg:self-start">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-orange-600">
                 Industries Served
-              </h2>
-              <p className="text-lg text-slate-700">
-                Industrial raw materials and chemicals tailored to your application.
               </p>
+              <div className="space-y-2">
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                  Industries Served
+                </h2>
+                <p className="text-lg text-slate-700">
+                  Industrial raw materials and chemicals tailored to your application.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Plastics",
-                bullets: [
-                  "Resins and additives for extrusion and molding",
-                  "Colorants and stabilizers for durable parts",
-                ],
-              },
-              {
-                title: "Foam",
-                bullets: [
-                  "Blowing agents and catalysts for flexible foam",
-                  "Performance additives for cushioning and insulation",
-                ],
-              },
-              {
-                title: "Soap & Detergent",
-                bullets: [
-                  "Surfactants and builders for cleaning formulations",
-                  "Fragrance carriers and functional additives",
-                ],
-              },
-              {
-                title: "Mining",
-                bullets: [
-                  "Reagents for ore processing and separation",
-                  "Dust suppression and water treatment inputs",
-                ],
-              },
-              {
-                title: "Construction",
-                bullets: [
-                  "Admixtures and binders for concrete and mortar",
-                  "Sealants and protective coatings materials",
-                ],
-              },
-            ].map((item) => (
-              <Card key={item.title}>
-                <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
-                <CardHeader>
-                  <CardTitle>{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
-                    {item.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                  <a
-                    href="/products"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
+            <div className="space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2 lg:hidden">
+                {[
+                  {
+                    title: "Plastics",
+                    bullets: [
+                      "Resins and additives for extrusion and molding",
+                      "Colorants and stabilizers for durable parts",
+                    ],
+                  },
+                  {
+                    title: "Foam",
+                    bullets: [
+                      "Blowing agents and catalysts for flexible foam",
+                      "Performance additives for cushioning and insulation",
+                    ],
+                  },
+                  {
+                    title: "Soap & Detergent",
+                    bullets: [
+                      "Surfactants and builders for cleaning formulations",
+                      "Fragrance carriers and functional additives",
+                    ],
+                  },
+                  {
+                    title: "Mining",
+                    bullets: [
+                      "Reagents for ore processing and separation",
+                      "Dust suppression and water treatment inputs",
+                    ],
+                  },
+                  {
+                    title: "Construction",
+                    bullets: [
+                      "Admixtures and binders for concrete and mortar",
+                      "Sealants and protective coatings materials",
+                    ],
+                  },
+                ].map((item) => (
+                  <Card key={item.title}>
+                    <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
+                    <CardHeader>
+                      <CardTitle>{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                      <a
+                        href="/products"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
+                      >
+                        Explore
+                        <span aria-hidden>→</span>
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              <div className="hidden lg:flex lg:flex-col lg:gap-0">
+                {[
+                  {
+                    title: "Plastics",
+                    bullets: [
+                      "Resins and additives for extrusion and molding",
+                      "Colorants and stabilizers for durable parts",
+                    ],
+                  },
+                  {
+                    title: "Foam",
+                    bullets: [
+                      "Blowing agents and catalysts for flexible foam",
+                      "Performance additives for cushioning and insulation",
+                    ],
+                  },
+                  {
+                    title: "Soap & Detergent",
+                    bullets: [
+                      "Surfactants and builders for cleaning formulations",
+                      "Fragrance carriers and functional additives",
+                    ],
+                  },
+                  {
+                    title: "Mining",
+                    bullets: [
+                      "Reagents for ore processing and separation",
+                      "Dust suppression and water treatment inputs",
+                    ],
+                  },
+                  {
+                    title: "Construction",
+                    bullets: [
+                      "Admixtures and binders for concrete and mortar",
+                      "Sealants and protective coatings materials",
+                    ],
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={item.title}
+                    className="relative h-[80vh]"
+                    aria-label={`${item.title} card`}
                   >
-                    Explore
-                    <span aria-hidden>→</span>
-                  </a>
-                </CardContent>
-              </Card>
-            ))}
+                    <div
+                      className="sticky top-28"
+                      style={{
+                        zIndex: 10 + idx * 5,
+                        transform: `translateY(${idx * 8}px)`,
+                      }}
+                    >
+                      <Card>
+                        <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
+                        <CardHeader>
+                          <CardTitle>{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
+                            {item.bullets.map((bullet) => (
+                              <li key={bullet}>{bullet}</li>
+                            ))}
+                          </ul>
+                          <a
+                            href="/products"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
+                          >
+                            Explore
+                            <span aria-hidden>→</span>
+                          </a>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -242,7 +332,7 @@ export default function Home() {
                   size="lg"
                   className="px-6 bg-orange-600 text-white hover:bg-orange-700"
                 >
-                  <a href="/contact">Request a Quote</a>
+                  <a href="mailto:afrochem2019@gmail.com">Request a Quote</a>
                 </Button>
                 <Button
                   asChild

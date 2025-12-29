@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -50,14 +51,22 @@ export function SiteHeader() {
     : "border-b border-slate-200 bg-white";
 
   return (
-    <header className={`sticky top-0 z-40 ${headerClass}`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className={`sticky top-0 z-50 ${headerClass}`}>
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 py-3">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900"
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900 shrink-0 flex-none min-w-[220px]"
         >
-          AFROCHEM
-          <span className="inline-block h-2 w-2 rounded-full bg-orange-600" aria-hidden />
+          <div className="relative h-10 w-[180px] border border-red-500/40 sm:h-12 sm:w-[220px]">
+            <Image
+              src="/afrologo.png"
+              alt="AFROCHEM logo"
+              fill
+              sizes="220px"
+              priority
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -72,7 +81,7 @@ export function SiteHeader() {
             size="sm"
             className="bg-orange-600 text-white hover:bg-orange-700 !bg-orange-600 !text-white hover:!bg-orange-700"
           >
-            <Link href="/contact">Request a Quote</Link>
+            <Link href="mailto:afrochem2019@gmail.com">Request a Quote</Link>
           </Button>
         </div>
 
@@ -110,7 +119,7 @@ export function SiteHeader() {
                     asChild
                     className="w-full bg-orange-600 text-white hover:bg-orange-700 !bg-orange-600 !text-white hover:!bg-orange-700"
                   >
-                    <Link href="/contact">Request a Quote</Link>
+                    <Link href="mailto:afrochem2019@gmail.com">Request a Quote</Link>
                   </Button>
                 </SheetClose>
               </div>
