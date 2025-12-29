@@ -1,65 +1,488 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import React from "react";
+
+type CardProps = {
+  children: React.ReactNode;
+};
+
+function Card({ children }: CardProps) {
+  return (
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      {children}
+    </div>
+  );
+}
+
+function CardHeader({ children }: CardProps) {
+  return <div className="flex flex-col gap-1 px-5 pt-4 pb-2">{children}</div>;
+}
+
+function CardTitle({ children }: CardProps) {
+  return <h3 className="text-lg font-semibold text-slate-900">{children}</h3>;
+}
+
+function CardContent({ children }: CardProps) {
+  return <div className="px-5 pb-5 text-sm text-slate-700">{children}</div>;
+}
 
 export default function Home() {
+  const [submitted, setSubmitted] = React.useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-white text-slate-900">
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-orange-500/30 via-orange-400/15 to-transparent" />
+        <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gradient-to-br from-orange-100/60 via-white to-orange-50/40 blur-3xl" />
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 lg:flex-row lg:items-center lg:py-24">
+          <div className="flex-1 space-y-6">
+            <div className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-medium text-orange-800 shadow-sm">
+              Ajman, UAE - B2B Industrial Supply
+            </div>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+                Industrial Raw Materials & Chemicals for Global Supply
+              </h1>
+              <p className="max-w-2xl text-lg text-slate-700">
+                AFROCHEM TRADING FZE LLC specializes in general trading and operates
+                as an agency / commission agent, supplying industrial raw materials and
+                chemicals for plastics, foam, soap & detergent, mining, and construction
+                industries.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button
+                asChild
+                size="lg"
+                className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+              >
+                <a href="/contact">Request a Quote</a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="px-6 border-orange-600 text-orange-700 hover:bg-orange-50"
+              >
+                <a href="/products">View Products</a>
+              </Button>
+            </div>
+            <div className="text-sm font-medium text-slate-600">
+              Industries served: Plastics - Foam - Soap &amp; Detergent - Mining - Construction
+            </div>
+          </div>
+
+          <div className="relative flex-1">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-orange-50/60 to-orange-100/40 p-8 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
+              <div className="grid gap-4 sm:grid-cols-3">
+                {[
+                  "Fast Quotations",
+                  "Industrial-Grade Materials",
+                  "Compliance-Minded Supply",
+                ].map((title) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-slate-200/70 bg-white/80 p-4 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur-sm"
+                  >
+                    <span className="mb-2 block h-1 w-10 rounded-full bg-orange-500" />
+                    {title}
+                  </div>
+                ))}
+              </div>
+              <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-orange-200/50 via-white to-orange-100/60 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-gradient-to-br from-orange-100/70 via-white to-orange-200/40 blur-3xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-16 lg:py-20">
+          <div className="space-y-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-orange-600">
+              Industries Served
+            </p>
+            <div className="space-y-2">
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                Industries Served
+              </h2>
+              <p className="text-lg text-slate-700">
+                Industrial raw materials and chemicals tailored to your application.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Plastics",
+                bullets: [
+                  "Resins and additives for extrusion and molding",
+                  "Colorants and stabilizers for durable parts",
+                ],
+              },
+              {
+                title: "Foam",
+                bullets: [
+                  "Blowing agents and catalysts for flexible foam",
+                  "Performance additives for cushioning and insulation",
+                ],
+              },
+              {
+                title: "Soap & Detergent",
+                bullets: [
+                  "Surfactants and builders for cleaning formulations",
+                  "Fragrance carriers and functional additives",
+                ],
+              },
+              {
+                title: "Mining",
+                bullets: [
+                  "Reagents for ore processing and separation",
+                  "Dust suppression and water treatment inputs",
+                ],
+              },
+              {
+                title: "Construction",
+                bullets: [
+                  "Admixtures and binders for concrete and mortar",
+                  "Sealants and protective coatings materials",
+                ],
+              },
+            ].map((item) => (
+              <Card key={item.title}>
+                <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
+                <CardHeader>
+                  <CardTitle>{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                  <a
+                    href="/products"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
+                  >
+                    Explore
+                    <span aria-hidden>→</span>
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-20">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Why AFROCHEM
+            </h2>
+            <p className="text-lg text-slate-700">
+              A reliable partner for industrial sourcing and supply.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Reliable sourcing & supply",
+                desc: "Dependable access to industrial raw materials and chemicals through vetted suppliers and consistent fulfillment.",
+              },
+              {
+                title: "Responsive quotations",
+                desc: "Fast, clear quotations tailored to your specifications, with direct communication to keep timelines on track.",
+              },
+              {
+                title: "Industrial-grade focus",
+                desc: "Materials aligned to production standards for plastics, foam, soap & detergent, mining, and construction.",
+              },
+              {
+                title: "Compliance-minded approach",
+                desc: "Attention to regulatory and quality requirements to support safe, compliant supply chains.",
+              },
+            ].map((item) => (
+              <Card key={item.title}>
+                <CardHeader>
+                  <span className="mb-2 block h-2 w-2 rounded-full bg-orange-500" aria-hidden />
+                  <CardTitle>{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-slate-700">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 pb-24">
+          <div className="relative overflow-hidden rounded-3xl border border-orange-200/70 bg-gradient-to-br from-orange-500/15 via-orange-200/10 to-transparent p-8 shadow-[0_20px_60px_-20px_rgba(234,88,12,0.25)] sm:p-10">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-orange-300/50 via-white to-orange-100/40 blur-3xl" />
+            <div className="pointer-events-none absolute -left-10 -bottom-10 h-56 w-56 rounded-full bg-gradient-to-br from-orange-200/50 via-white to-orange-100/30 blur-3xl" />
+
+            <div className="relative z-10 flex flex-col gap-4 sm:gap-6">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                  Request a Quote
+                </h2>
+                <p className="text-lg text-slate-800">
+                  Share your material requirements and our team will respond with a tailored quotation.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+                >
+                  <a href="/contact">Request a Quote</a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="px-6 border-orange-600 text-orange-700 hover:bg-orange-50"
+                >
+                  <a href="/products">View Products</a>
+                </Button>
+              </div>
+
+              <p className="text-sm text-slate-700">
+                Some products may be regulated. Supply is subject to applicable laws, licensing, and documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 pb-24">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              How We Work
+            </h2>
+            <p className="text-lg text-slate-700">
+              A simple, compliant process from inquiry to delivery coordination.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                step: "01",
+                title: "Send an inquiry",
+                desc: "Share your product or material needs, destination, and any specifications.",
+              },
+              {
+                step: "02",
+                title: "Confirm specs & documentation",
+                desc: "Verify requirements and documentation, including regulated items where applicable.",
+              },
+              {
+                step: "03",
+                title: "Receive quotation",
+                desc: "Get pricing, lead time, and terms aligned to your request.",
+              },
+              {
+                step: "04",
+                title: "Delivery coordination",
+                desc: "Coordinate logistics and shipment based on agreed terms.",
+              },
+            ].map((item) => (
+              <Card key={item.step}>
+                <CardHeader>
+                  <div className="mb-2 inline-flex h-8 items-center rounded-full bg-orange-100 px-3 text-xs font-semibold uppercase tracking-wide text-orange-700">
+                    {item.step}
+                  </div>
+                  <CardTitle>{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-slate-700">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm text-slate-700">
+            Regulated materials may require additional verification before quotation or supply.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 pb-24">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Trusted B2B Supply Partner
+            </h2>
+            <p className="text-lg text-slate-700">
+              Credibility signals that make it easy to work with us.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "B2B inquiries only",
+                desc: "We supply to eligible industrial clients.",
+              },
+              {
+                title: "Compliance-first supply",
+                desc: "Regulated materials may require verification and documentation.",
+              },
+              {
+                title: "SDS/MSDS on request",
+                desc: "Documentation support where applicable.",
+              },
+              {
+                title: "Multiple contact channels",
+                desc: "Email/WhatsApp/phone (placeholders for now).",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white px-4 py-4 shadow-sm"
+              >
+                <span className="mt-1 block h-2.5 w-2.5 rounded-full bg-orange-500" aria-hidden />
+                <div className="space-y-1">
+                  <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                  <p className="text-sm text-slate-700">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm text-slate-700">
+            Your inquiry details are used only to respond to your request.
+          </p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 pb-24">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Quick Inquiry
+            </h2>
+            <p className="text-lg text-slate-700">
+              Send your requirements and we’ll respond with a quotation.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            <div className="space-y-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900">What to include</h3>
+              <ul className="list-disc space-y-2 pl-5 text-slate-700">
+                <li>Product / material</li>
+                <li>Quantity</li>
+                <li>Destination country</li>
+                <li>Intended industrial use</li>
+              </ul>
+            </div>
+
+            <div className="rounded-3xl border border-orange-100 bg-gradient-to-br from-orange-50/60 via-white to-orange-100/40 p-6 shadow-sm">
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSubmitted(true);
+                }}
+              >
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-slate-800" htmlFor="qi-name">
+                      Full name *
+                    </label>
+                    <input
+                      id="qi-name"
+                      name="name"
+                      required
+                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-slate-800" htmlFor="qi-company">
+                      Company *
+                    </label>
+                    <input
+                      id="qi-company"
+                      name="company"
+                      required
+                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-slate-800" htmlFor="qi-email">
+                    Email *
+                  </label>
+                  <input
+                    id="qi-email"
+                    name="email"
+                    type="email"
+                    required
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-slate-800" htmlFor="qi-message">
+                    Message *
+                  </label>
+                  <textarea
+                    id="qi-message"
+                    name="message"
+                    required
+                    rows={4}
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                  />
+                </div>
+
+                <label className="flex items-start gap-2 text-sm text-slate-800">
+                  <input
+                    type="checkbox"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-400"
+                  />
+                  <span>I understand regulated materials may require licensing and verification.</span>
+                </label>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+                  >
+                    Send Inquiry
+                  </Button>
+                  {submitted && (
+                    <span className="text-sm font-medium text-orange-700">
+                      Thanks! We received your inquiry.
+                    </span>
+                  )}
+                </div>
+              </form>
+
+              <div className="mt-4 text-sm">
+                <a
+                  href="/contact"
+                  className="font-semibold text-orange-700 hover:text-orange-800"
+                >
+                  Prefer a detailed request? Go to Contact →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
