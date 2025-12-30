@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import Image from "next/image";
 import React from "react";
 
@@ -75,14 +76,14 @@ export default function Home() {
           </div>
 
           <div className="relative flex-1">
-            <div className="mb-4 flex justify-center">
+            <div className="mb-2 flex justify-center">
               <Image
                 src="/afrologo.png"
                 alt="AFROCHEM logo"
-                width={260}
-                height={80}
+                width={1400}
+                height={600}
                 priority
-                className="h-16 w-auto"
+                className="h-72 w-auto md:h-[22rem]"
               />
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-orange-50/60 to-orange-100/40 p-8 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
@@ -459,118 +460,18 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 pb-24">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Quick Inquiry
+              What Clients Say
             </h2>
             <p className="text-lg text-slate-700">
-              Send your requirements and we’ll respond with a quotation.
+              Trusted by industrial buyers and partners.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
-            <div className="space-y-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">What to include</h3>
-              <ul className="list-disc space-y-2 pl-5 text-slate-700">
-                <li>Product / material</li>
-                <li>Quantity</li>
-                <li>Destination country</li>
-                <li>Intended industrial use</li>
-              </ul>
-            </div>
+          <TestimonialsCarousel />
 
-            <div className="rounded-3xl border border-orange-100 bg-gradient-to-br from-orange-50/60 via-white to-orange-100/40 p-6 shadow-sm">
-              <form
-                className="space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                }}
-              >
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-slate-800" htmlFor="qi-name">
-                      Full name *
-                    </label>
-                    <input
-                      id="qi-name"
-                      name="name"
-                      required
-                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-slate-800" htmlFor="qi-company">
-                      Company *
-                    </label>
-                    <input
-                      id="qi-company"
-                      name="company"
-                      required
-                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="qi-email">
-                    Email *
-                  </label>
-                  <input
-                    id="qi-email"
-                    name="email"
-                    type="email"
-                    required
-                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="qi-message">
-                    Message *
-                  </label>
-                  <textarea
-                    id="qi-message"
-                    name="message"
-                    required
-                    rows={4}
-                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
-                  />
-                </div>
-
-                <label className="flex items-start gap-2 text-sm text-slate-800">
-                  <input
-                    type="checkbox"
-                    required
-                    className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-400"
-                  />
-                  <span>I understand regulated materials may require licensing and verification.</span>
-                </label>
-
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="px-6 bg-orange-600 text-white hover:bg-orange-700"
-                  >
-                    Send Inquiry
-                  </Button>
-                  {submitted && (
-                    <span className="text-sm font-medium text-orange-700">
-                      Thanks! We received your inquiry.
-                    </span>
-                  )}
-                </div>
-              </form>
-
-              <div className="mt-4 text-sm">
-                <a
-                  href="/contact"
-                  className="font-semibold text-orange-700 hover:text-orange-800"
-                >
-                  Prefer a detailed request? Go to Contact →
-                </a>
-              </div>
-            </div>
-          </div>
+          <p className="mt-4 text-sm text-slate-700">
+            Testimonials available upon request.
+          </p>
         </div>
       </section>
     </main>

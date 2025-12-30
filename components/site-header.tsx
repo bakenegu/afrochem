@@ -57,14 +57,14 @@ export function SiteHeader() {
           href="/"
           className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900 shrink-0 flex-none min-w-[220px]"
         >
-          <div className="relative h-12 w-[240px] shrink-0 flex-none">
+          <div className="relative h-16 w-[320px] md:h-20 md:w-[360px] shrink-0 flex-none">
             <Image
               src="/afrologo.png"
               alt="AFROCHEM logo"
               fill
-              sizes="220px"
+              sizes="320px"
               priority
-              className="object-cover object-left scale-[1.6]"
+              className="object-contain"
             />
           </div>
         </Link>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -42,16 +44,25 @@ export default function AboutPage() {
         </div>
 
         <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-          <div className="space-y-2">
-            <h3 className="text-2xl font-semibold text-slate-900">Admaw Anley Endalew</h3>
-            <p className="text-sm font-semibold text-orange-700">
-              Owner &amp; Chief Executive Officer – Afrochem Trading FZE LLC
-            </p>
-            <p className="text-sm leading-relaxed text-slate-700">
-              Admaw is a chemical engineer and international trade professional with experience spanning
-              industrial supply chains and investment consulting. He integrates technical insight with
-              market access, guiding compliant sourcing and responsive service for industrial clients.
-            </p>
+          <div className="flex items-start gap-4">
+            <Image
+              src="/admaw.jpeg"
+              alt="Admaw Anley Endalew"
+              width={80}
+              height={80}
+              className="h-16 w-16 rounded-full object-cover ring-2 ring-orange-500/40 md:h-20 md:w-20"
+            />
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold text-slate-900">Admaw Anley Endalew</h3>
+              <p className="text-sm font-semibold text-orange-700">
+                Owner &amp; Chief Executive Officer – Afrochem Trading FZE LLC
+              </p>
+              <p className="text-sm leading-relaxed text-slate-700">
+                Admaw is a chemical engineer and international trade professional with experience spanning
+                industrial supply chains and investment consulting. He integrates technical insight with
+                market access, guiding compliant sourcing and responsive service for industrial clients.
+              </p>
+            </div>
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">

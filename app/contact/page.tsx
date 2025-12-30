@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -46,6 +48,221 @@ export default function ContactPage() {
               destination, and intended industrial use.
             </p>
           </div>
+        </div>
+
+        <div className="mt-8 space-y-6 rounded-3xl border border-orange-100 bg-gradient-to-br from-orange-50/50 via-white to-orange-100/40 p-6 shadow-sm">
+          <div className="space-y-1">
+            <h2 className="text-lg font-semibold text-slate-900">Quick Inquiry</h2>
+            <p className="text-sm text-slate-700">
+              A compact form for fast leads.
+            </p>
+          </div>
+          <form className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="quick-name">
+                  Full name *
+                </label>
+                <input
+                  id="quick-name"
+                  name="name"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="quick-company">
+                  Company *
+                </label>
+                <input
+                  id="quick-company"
+                  name="company"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-sm font-medium text-slate-800" htmlFor="quick-email">
+                Email *
+              </label>
+              <input
+                id="quick-email"
+                name="email"
+                type="email"
+                required
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-sm font-medium text-slate-800" htmlFor="quick-message">
+                Message *
+              </label>
+              <textarea
+                id="quick-message"
+                name="message"
+                required
+                rows={3}
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+              />
+            </div>
+
+            <label className="flex items-start gap-2 text-sm text-slate-800">
+              <input
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-400"
+              />
+              <span>I understand regulated materials may require licensing and verification.</span>
+            </label>
+
+            <Button
+              type="submit"
+              className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+            >
+              Send Quick Inquiry
+            </Button>
+          </form>
+        </div>
+
+        <div className="mt-8 space-y-6 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
+          <div className="space-y-1">
+            <h2 className="text-lg font-semibold text-slate-900">Detailed Request</h2>
+            <p className="text-sm text-slate-700">
+              Share full requirements to receive a tailored quotation.
+            </p>
+          </div>
+          <form className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-name">
+                  Full name *
+                </label>
+                <input
+                  id="detail-name"
+                  name="name"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-company">
+                  Company *
+                </label>
+                <input
+                  id="detail-company"
+                  name="company"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-email">
+                  Email *
+                </label>
+                <input
+                  id="detail-email"
+                  name="email"
+                  type="email"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-phone">
+                  Phone / WhatsApp
+                </label>
+                <input
+                  id="detail-phone"
+                  name="phone"
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-product">
+                  Product / material *
+                </label>
+                <input
+                  id="detail-product"
+                  name="product"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-quantity">
+                  Quantity *
+                </label>
+                <input
+                  id="detail-quantity"
+                  name="quantity"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-destination">
+                  Destination country *
+                </label>
+                <input
+                  id="detail-destination"
+                  name="destination"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-medium text-slate-800" htmlFor="detail-use">
+                  Intended industrial use *
+                </label>
+                <input
+                  id="detail-use"
+                  name="use"
+                  required
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-sm font-medium text-slate-800" htmlFor="detail-notes">
+                Additional details
+              </label>
+              <textarea
+                id="detail-notes"
+                name="notes"
+                rows={4}
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
+              />
+            </div>
+
+            <label className="flex items-start gap-2 text-sm text-slate-800">
+              <input
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-400"
+              />
+              <span>I understand regulated materials may require licensing and verification.</span>
+            </label>
+
+            <Button
+              type="submit"
+              className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+            >
+              Send Detailed Request
+            </Button>
+          </form>
         </div>
       </section>
     </main>
