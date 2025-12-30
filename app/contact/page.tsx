@@ -47,6 +47,24 @@ export default function ContactPage() {
               Prefer to send details? Use the inquiry form below and include product/material, quantity,
               destination, and intended industrial use.
             </p>
+            <div className="space-y-3">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-orange-100 shadow-sm">
+                <iframe
+                  title="Ajman Media City Free Zone Map"
+                  src="https://www.google.com/maps?q=Ajman%20Media%20City%20Free%20Zone%2C%20Ajman%2C%20United%20Arab%20Emirates&output=embed"
+                  loading="lazy"
+                  className="h-full w-full"
+                />
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Ajman%20Media%20City%20Free%20Zone%2C%20Ajman%2C%20United%20Arab%20Emirates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+              >
+                Open in Google Maps
+              </a>
+            </div>
           </div>
         </div>
 

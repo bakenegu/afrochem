@@ -31,6 +31,107 @@ function CardContent({ children }: CardProps) {
 
 export default function Home() {
   const [submitted, setSubmitted] = React.useState(false);
+  const industries = [
+    {
+      title: "Plastics",
+      bullets: [
+        "Resins and additives for extrusion and molding",
+        "Colorants and stabilizers for durable parts",
+      ],
+      bgImage: "/Plastics.png",
+    },
+    {
+      title: "Foam",
+      bullets: [
+        "Blowing agents and catalysts for flexible foam",
+        "Performance additives for cushioning and insulation",
+      ],
+      bgImage: "/Foam.png",
+    },
+    {
+      title: "Soap & Detergent",
+      bullets: [
+        "Surfactants and builders for cleaning formulations",
+        "Fragrance carriers and functional additives",
+      ],
+      bgImage: "/soap.png",
+    },
+    {
+      title: "Mining",
+      bullets: [
+        "Reagents for ore processing and separation",
+        "Dust suppression and water treatment inputs",
+      ],
+      bgImage: "/mining.png",
+    },
+    {
+      title: "Construction",
+      bullets: [
+        "Admixtures and binders for concrete and mortar",
+        "Sealants and protective coatings materials",
+      ],
+      bgImage: "/construction.png",
+    },
+  ];
+
+  const renderIndustryCard = (item: (typeof industries)[number]) => {
+    const hasBg = Boolean(item.bgImage);
+    const titleColor = "text-white";
+    const bodyColor = "text-white/90";
+    const linkColor = "text-white font-semibold";
+
+    return (
+      <div
+        key={item.title}
+        className={`relative group overflow-hidden rounded-2xl border shadow-sm ${
+          hasBg ? "border-orange-200/70 bg-slate-950" : "border-slate-200 bg-white"
+        }`}
+      >
+        {hasBg && (
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+              style={{ backgroundImage: `url('${item.bgImage}')` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/35 to-transparent transition duration-500 group-hover:from-black/75 group-hover:via-black/45" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/15 via-transparent to-transparent" />
+          </div>
+        )}
+        <div className="relative z-10 flex h-full flex-col">
+          <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300 opacity-90" />
+          <CardHeader>
+              <CardTitle className={titleColor}>{item.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className={`mb-4 list-disc space-y-1 pl-5 ${bodyColor}`}>
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              <a
+                href={`/products?category=${
+                  item.title === "Plastics"
+                    ? "plastics"
+                    : item.title === "Foam"
+                      ? "foam"
+                      : item.title === "Soap & Detergent"
+                        ? "soap"
+                        : item.title === "Mining"
+                          ? "mining"
+                          : item.title === "Construction"
+                            ? "construction"
+                            : ""
+                }`}
+                className={`inline-flex items-center gap-2 text-sm hover:text-orange-200 ${linkColor}`}
+              >
+                Explore
+                <span aria-hidden>→</span>
+              </a>
+          </CardContent>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -128,104 +229,11 @@ export default function Home() {
 
             <div className="space-y-6">
               <div className="grid gap-6 sm:grid-cols-2 lg:hidden">
-                {[
-                  {
-                    title: "Plastics",
-                    bullets: [
-                      "Resins and additives for extrusion and molding",
-                      "Colorants and stabilizers for durable parts",
-                    ],
-                  },
-                  {
-                    title: "Foam",
-                    bullets: [
-                      "Blowing agents and catalysts for flexible foam",
-                      "Performance additives for cushioning and insulation",
-                    ],
-                  },
-                  {
-                    title: "Soap & Detergent",
-                    bullets: [
-                      "Surfactants and builders for cleaning formulations",
-                      "Fragrance carriers and functional additives",
-                    ],
-                  },
-                  {
-                    title: "Mining",
-                    bullets: [
-                      "Reagents for ore processing and separation",
-                      "Dust suppression and water treatment inputs",
-                    ],
-                  },
-                  {
-                    title: "Construction",
-                    bullets: [
-                      "Admixtures and binders for concrete and mortar",
-                      "Sealants and protective coatings materials",
-                    ],
-                  },
-                ].map((item) => (
-                  <Card key={item.title}>
-                    <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
-                    <CardHeader>
-                      <CardTitle>{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
-                        {item.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
-                        ))}
-                      </ul>
-                      <a
-                        href="/products"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
-                      >
-                        Explore
-                        <span aria-hidden>→</span>
-                      </a>
-                    </CardContent>
-                  </Card>
-                ))}
+                {industries.map((item) => renderIndustryCard(item))}
               </div>
 
               <div className="hidden lg:flex lg:flex-col lg:gap-0">
-                {[
-                  {
-                    title: "Plastics",
-                    bullets: [
-                      "Resins and additives for extrusion and molding",
-                      "Colorants and stabilizers for durable parts",
-                    ],
-                  },
-                  {
-                    title: "Foam",
-                    bullets: [
-                      "Blowing agents and catalysts for flexible foam",
-                      "Performance additives for cushioning and insulation",
-                    ],
-                  },
-                  {
-                    title: "Soap & Detergent",
-                    bullets: [
-                      "Surfactants and builders for cleaning formulations",
-                      "Fragrance carriers and functional additives",
-                    ],
-                  },
-                  {
-                    title: "Mining",
-                    bullets: [
-                      "Reagents for ore processing and separation",
-                      "Dust suppression and water treatment inputs",
-                    ],
-                  },
-                  {
-                    title: "Construction",
-                    bullets: [
-                      "Admixtures and binders for concrete and mortar",
-                      "Sealants and protective coatings materials",
-                    ],
-                  },
-                ].map((item, idx) => (
+                {industries.map((item, idx) => (
                   <div
                     key={item.title}
                     className="relative h-[80vh]"
@@ -238,26 +246,7 @@ export default function Home() {
                         transform: `translateY(${idx * 8}px)`,
                       }}
                     >
-                      <Card>
-                        <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300" />
-                        <CardHeader>
-                          <CardTitle>{item.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <ul className="mb-4 list-disc space-y-1 pl-5 text-slate-700">
-                            {item.bullets.map((bullet) => (
-                              <li key={bullet}>{bullet}</li>
-                            ))}
-                          </ul>
-                          <a
-                            href="/products"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800"
-                          >
-                            Explore
-                            <span aria-hidden>→</span>
-                          </a>
-                        </CardContent>
-                      </Card>
+                      {renderIndustryCard(item)}
                     </div>
                   </div>
                 ))}
