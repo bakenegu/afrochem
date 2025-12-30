@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/about", label: "About" },
-  { href: "/compliance", label: "Compliance" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -52,12 +51,12 @@ export function SiteHeader() {
 
   return (
     <header className={`sticky top-0 z-50 ${headerClass}`}>
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 py-3">
         <Link
           href="/"
           className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900 shrink-0 flex-none min-w-[220px]"
         >
-          <div className="relative h-16 w-[320px] md:h-20 md:w-[360px] shrink-0 flex-none">
+          <div className="relative h-20 w-[380px] md:h-24 md:w-[440px] shrink-0 flex-none">
             <Image
               src="/afrologo.png"
               alt="AFROCHEM logo"

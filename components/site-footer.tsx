@@ -4,7 +4,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-orange-500 bg-orange-600 text-orange-50">
+    <footer className="border-t border-orange-500 bg-gradient-to-br from-orange-600 via-orange-500 to-orange-400 text-orange-50">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-3">
@@ -30,7 +30,6 @@ export function SiteFooter() {
                 { href: "/", label: "Home" },
                 { href: "/products", label: "Products" },
                 { href: "/about", label: "About" },
-                { href: "/compliance", label: "Compliance" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <Link

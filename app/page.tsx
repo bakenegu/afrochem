@@ -302,41 +302,61 @@ export default function Home() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 pb-24">
-          <div className="relative overflow-hidden rounded-3xl border border-orange-200/70 bg-gradient-to-br from-orange-500/15 via-orange-200/10 to-transparent p-8 shadow-[0_20px_60px_-20px_rgba(234,88,12,0.25)] sm:p-10">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-orange-300/50 via-white to-orange-100/40 blur-3xl" />
-            <div className="pointer-events-none absolute -left-10 -bottom-10 h-56 w-56 rounded-full bg-gradient-to-br from-orange-200/50 via-white to-orange-100/30 blur-3xl" />
-
-            <div className="relative z-10 flex flex-col gap-4 sm:gap-6">
-              <div className="space-y-2">
+          <div className="rounded-3xl border border-orange-100 bg-gradient-to-br from-orange-50/60 via-white to-orange-100/40 p-6 shadow-sm sm:p-8">
+            <div className="grid gap-6 lg:grid-cols-[1.05fr_1fr]">
+              <div className="space-y-3">
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                  Request a Quote
+                  Contact details
                 </h2>
-                <p className="text-lg text-slate-800">
-                  Share your material requirements and our team will respond with a tailored quotation.
+                <div className="space-y-2 text-sm text-slate-800">
+                  <p>
+                    Email:{" "}
+                    <a href="mailto:afrochem2019@gmail.com" className="font-semibold text-orange-700 hover:text-orange-800">
+                      afrochem2019@gmail.com
+                    </a>
+                  </p>
+                  <p>
+                    Mobile/WhatsApp:{" "}
+                    <a href="tel:+971569653824" className="font-semibold text-orange-700 hover:text-orange-800">
+                      +971569653824
+                    </a>
+                  </p>
+                  <p>Location: Ajman Media City Free Zone, Ajman, United Arab Emirates</p>
+                  <p>Office Location: BLA-BR3-360, AMC Boulevard Building, Ajman Media City, Ajman, UAE</p>
+                  <p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Ajman%20Media%20City%20Free%20Zone%2C%20Ajman%2C%20United%20Arab%20Emirates"
+                      className="font-semibold text-orange-700 hover:text-orange-800"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open in Google Maps
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-sm text-slate-800">
+                  Prefer to send details? Include product/material, quantity, destination, and intended industrial use.
                 </p>
-              </div>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="px-6 bg-orange-600 text-white hover:bg-orange-700"
+                <div className="overflow-hidden rounded-xl border border-orange-100 shadow-sm aspect-video w-full">
+                  <iframe
+                    title="Ajman Media City Free Zone Map"
+                    src="https://www.google.com/maps?q=Ajman%20Media%20City%20Free%20Zone%2C%20Ajman%2C%20United%20Arab%20Emirates&output=embed"
+                    loading="lazy"
+                    className="h-full w-full"
+                  />
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ajman%20Media%20City%20Free%20Zone%2C%20Ajman%2C%20United%20Arab%20Emirates"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                 >
-                  <a href="mailto:afrochem2019@gmail.com">Request a Quote</a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="px-6 border-orange-600 text-orange-700 hover:bg-orange-50"
-                >
-                  <a href="/products">View Products</a>
-                </Button>
+                  Open in Google Maps
+                </a>
               </div>
-
-              <p className="text-sm text-slate-700">
-                Some products may be regulated. Supply is subject to applicable laws, licensing, and documentation.
-              </p>
             </div>
           </div>
         </div>
@@ -412,28 +432,38 @@ export default function Home() {
               {
                 title: "B2B inquiries only",
                 desc: "We supply to eligible industrial clients.",
+                bg: "/b2b.png",
               },
               {
                 title: "Compliance-first supply",
                 desc: "Regulated materials may require verification and documentation.",
+                bg: "/compliance.png",
               },
               {
                 title: "SDS/MSDS on request",
                 desc: "Documentation support where applicable.",
+                bg: "/sds.png",
               },
               {
                 title: "Multiple contact channels",
                 desc: "Email/WhatsApp/phone (placeholders for now).",
+                bg: "/contact.png",
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white px-4 py-4 shadow-sm"
+                className="group relative flex items-start gap-3 overflow-hidden rounded-2xl border border-orange-100 bg-slate-900 px-6 py-6 shadow-sm min-h-[360px]"
               >
-                <span className="mt-1 block h-2.5 w-2.5 rounded-full bg-orange-500" aria-hidden />
-                <div className="space-y-1">
-                  <p className="text-sm font-semibold text-slate-900">{item.title}</p>
-                  <p className="text-sm text-slate-700">{item.desc}</p>
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105"
+                  style={{ backgroundImage: `url('${item.bg}')` }}
+                />
+                <div className="absolute inset-0 bg-black/55" />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-transparent" />
+                <span className="relative z-10 mt-1 block h-2.5 w-2.5 rounded-full bg-white" aria-hidden />
+                <div className="relative z-10 space-y-1 text-white">
+                  <p className="text-sm font-semibold">{item.title}</p>
+                  <p className="text-sm text-white/90">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -463,6 +493,17 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <a
+        href="https://wa.me/971569653824"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-green-500 px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2"
+        aria-label="WhatsApp call +971569653824"
+      >
+        <span className="text-lg">📞</span>
+        Contact Us
+      </a>
     </main>
   );
 }
