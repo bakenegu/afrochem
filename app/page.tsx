@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import Image from "next/image";
 import React from "react";
@@ -77,8 +77,8 @@ export default function Home() {
         <div className="relative z-10 flex h-full flex-col">
           <div className="h-1.5 w-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300 opacity-90" />
           <CardHeader>
-              <CardTitle className={titleColor}>{item.title}</CardTitle>
-            </CardHeader>
+            <h3 className={`text-lg font-semibold ${titleColor}`}>{item.title}</h3>
+          </CardHeader>
             <CardContent>
               <ul className={`mb-4 list-disc space-y-1 pl-5 ${bodyColor}`}>
                 {item.bullets.map((bullet) => (
@@ -266,7 +266,7 @@ export default function Home() {
               <Card key={item.title}>
                 <CardHeader>
                   <span className="mb-2 block h-2 w-2 rounded-full bg-orange-500" aria-hidden />
-                  <CardTitle>{item.title}</CardTitle>
+                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm leading-relaxed text-slate-700">{item.desc}</p>
@@ -378,7 +378,7 @@ export default function Home() {
                   <div className="mb-2 inline-flex h-8 items-center rounded-full bg-orange-100 px-3 text-xs font-semibold uppercase tracking-wide text-orange-700">
                     {item.step}
                   </div>
-                  <CardTitle>{item.title}</CardTitle>
+                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm leading-relaxed text-slate-700">{item.desc}</p>
