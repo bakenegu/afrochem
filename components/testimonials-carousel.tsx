@@ -166,7 +166,6 @@ export function TestimonialsCarousel() {
                       “{item.quote}”
                     </CardTitle>
                   </CardHeader>
-                  <CardContent />
                 </Card>
               </div>
             );

@@ -31,9 +31,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       .join(" ");
 
     if (asChild && React.isValidElement(children)) {
-      return React.cloneElement(children, {
+      const child = children as React.ReactElement<any>;
+      return React.cloneElement(child, {
+        ...(child.props || {}),
         ...props,
-        className: [classes, (children.props as { className?: string }).className]
+        className: [classes, (child.props as { className?: string })?.className]
           .filter(Boolean)
           .join(" "),
       }) as React.ReactElement;

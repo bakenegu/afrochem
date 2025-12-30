@@ -167,9 +167,11 @@ type SheetTriggerProps = {
 function SheetTrigger({ asChild, children }: SheetTriggerProps) {
   const { setOpen } = useSheetContext("SheetTrigger");
   if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children, {
-      onClick: (event: React.MouseEvent) => {
-        children.props.onClick?.(event);
+    const child = children as React.ReactElement<any>;
+    return React.cloneElement(child, {
+      ...child.props,
+      onClick: (event: React.MouseEvent<HTMLElement>) => {
+        (child.props as any)?.onClick?.(event);
         setOpen(true);
       },
     });
@@ -233,9 +235,11 @@ type SheetCloseProps = {
 function SheetClose({ asChild, children }: SheetCloseProps) {
   const { setOpen } = useSheetContext("SheetClose");
   if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children, {
-      onClick: (event: React.MouseEvent) => {
-        children.props.onClick?.(event);
+    const child = children as React.ReactElement<any>;
+    return React.cloneElement(child, {
+      ...child.props,
+      onClick: (event: React.MouseEvent<HTMLElement>) => {
+        (child.props as any)?.onClick?.(event);
         setOpen(false);
       },
     });

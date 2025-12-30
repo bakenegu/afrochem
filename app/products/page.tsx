@@ -1,6 +1,6 @@
- "use client";
+"use client";
 
-import { useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 
 const categoryMap: Record<string, { label: string; image: string }> = {
@@ -59,6 +59,14 @@ const categorySections: Array<{
 ];
 
 export default function ProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsPageContent />
+    </Suspense>
+  );
+}
+
+function ProductsPageContent() {
   const searchParams = useSearchParams();
   const category = (searchParams.get("category") || "").toLowerCase().trim();
   const hasCategory = Boolean(category);
