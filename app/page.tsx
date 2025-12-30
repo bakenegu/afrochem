@@ -7,26 +7,29 @@ import React from "react";
 
 type CardProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-function Card({ children }: CardProps) {
+function Card({ children, className = "" }: CardProps) {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div
+      className={`flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}
+    >
       {children}
     </div>
   );
 }
 
-function CardHeader({ children }: CardProps) {
-  return <div className="flex flex-col gap-1 px-5 pt-4 pb-2">{children}</div>;
+function CardHeader({ children, className = "" }: CardProps) {
+  return <div className={`flex flex-col gap-1 px-5 pt-4 pb-2 ${className}`}>{children}</div>;
 }
 
-function CardTitle({ children }: CardProps) {
-  return <h3 className="text-lg font-semibold text-slate-900">{children}</h3>;
+function CardTitle({ children, className = "" }: CardProps) {
+  return <h3 className={`text-lg font-semibold text-slate-900 ${className}`}>{children}</h3>;
 }
 
-function CardContent({ children }: CardProps) {
-  return <div className="px-5 pb-5 text-sm text-slate-700">{children}</div>;
+function CardContent({ children, className = "" }: CardProps) {
+  return <div className={`px-5 pb-5 text-sm text-slate-700 ${className}`}>{children}</div>;
 }
 
 export default function Home() {
