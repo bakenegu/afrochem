@@ -45,13 +45,9 @@ export default function AboutPage() {
 
         <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
           <div className="flex items-start gap-4">
-            <Image
-              src="/admaw.jpeg"
-              alt="Admaw Anley Endalew"
-              width={80}
-              height={80}
-              className="h-16 w-16 rounded-full object-cover ring-2 ring-orange-500/40 md:h-20 md:w-20"
-            />
+            <div className="flex h-14 w-14 items-center justify-center rounded-full aspect-square bg-orange-100 text-sm font-semibold text-orange-700 ring-2 ring-orange-500/40 md:h-16 md:w-16">
+              AE
+            </div>
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold text-slate-900">Admaw Anley Endalew</h3>
               <p className="text-sm font-semibold text-orange-700">
@@ -65,7 +61,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <div className="mt-4 grid gap-4 lg:grid-cols-2 lg:pl-20 lg:pr-4">
             <div className="space-y-2">
               <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Education</h4>
               <ul className="list-disc space-y-1 pl-5 text-sm text-slate-700">
@@ -82,6 +78,46 @@ export default function AboutPage() {
               </ul>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {[
+            {
+              name: "Mr. Alishan Said",
+              role: "Head of Supply Chain, Logistics & Trade Operations",
+              summary:
+                "Oversees procurement, import/export, inventory, warehousing, and logistics. Handles bank LC coordination, shipment follow-up, customs documentation, and compliant, cost-effective movement of goods.",
+              initials: "AS",
+            },
+            {
+              name: "Mr. Gebremariam Fenta",
+              role: "Head of Finance & Human Resources",
+              summary:
+                "Leads financial planning, budgeting, reporting, compliance, and cash-flow. Manages bank relationships, LC opening/settlements, trade finance, and HR to support stability and growth.",
+              initials: "GF",
+            },
+            {
+              name: "Mr. Fiseha Abebaw",
+              role: "Head of Marketing",
+              summary:
+                "Drives marketing strategy, brand development, research, and customer engagement. Supports sales growth, export market development, and relationships with customers and distributors.",
+              initials: "FA",
+            },
+          ].map((person) => (
+            <div
+              key={person.name}
+              className="flex flex-col gap-3 rounded-3xl border border-orange-100 bg-white p-5 shadow-sm sm:flex-row"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full aspect-square bg-orange-100 text-sm font-semibold text-orange-700 ring-2 ring-orange-500/40 md:h-16 md:w-16">
+                {person.initials}
+              </div>
+              <div className="space-y-1">
+                <p className="text-lg font-semibold text-slate-900">{person.name}</p>
+                <p className="text-sm font-semibold text-orange-700">{person.role}</p>
+                <p className="text-sm leading-relaxed text-slate-700">{person.summary}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
